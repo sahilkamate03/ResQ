@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:res_q/profile_page.dart';
 import 'login_page.dart';
 
 class MainApp extends StatelessWidget {
@@ -43,7 +44,14 @@ class _HomePageState extends State<HomePage> {
                 SpeedDialChild(
                   child: const Icon(Icons.person),
                   label: 'Profile',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfilePage(),
+                      ),
+                    );
+                  },
                 ),
               ],
             )
@@ -86,7 +94,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const Image(
                 image: AssetImage('images/dark background.jpg'),
-                height: 340,
+                height: 330,
                 width: 410,
                 fit: BoxFit.fitWidth,
               ),

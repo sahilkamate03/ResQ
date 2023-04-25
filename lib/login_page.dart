@@ -8,13 +8,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-   bool isloggedin = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(246, 246, 246, 246),
         body: Center(
           child: Column(
             children: [
@@ -22,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 120,
               ),
               const CircleAvatar(
-                backgroundColor: Color(0x00D9D9D9),
+                backgroundColor: Color.fromARGB(217, 217, 217, 217),
                 radius: 60,
                 child: Icon(
                   Icons.people_alt,
@@ -37,6 +36,8 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
                   decoration: InputDecoration(
+                    fillColor: Colors.black,
+                    focusColor: Colors.black,
                     hintText: 'Username',
                     prefixIcon: IconButton(
                       onPressed: () {},
@@ -60,10 +61,11 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
                   decoration: InputDecoration(
+                    fillColor: Colors.black,
                     hintText: 'Password',
                     prefixIcon: IconButton(
                       icon: Image.asset('images/password logo.png'),
-                      //color: const Color.fromARGB(255, 73, 193, 77),
+                      color: const Color.fromRGBO(98, 185, 102, 0),
                       onPressed: () {},
                     ),
                     border: const OutlineInputBorder(
@@ -85,7 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    isloggedin = true;
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const HomePage()),
