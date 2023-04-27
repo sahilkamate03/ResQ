@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -121,7 +121,11 @@ class _LoginPageState extends State<LoginPage> {
               color: Colors.red,
             ),
             Text(
-              ' by Null_Byte',
+              ' by',
+              style: TextStyle(),
+            ),
+            Text(
+              ' Null_Byte',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
