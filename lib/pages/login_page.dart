@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import '../../functions/sign_in.dart';
+=======
+//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import '../functions/sign_in.dart';
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
 import 'home_page.dart';
 
 class MainApp extends StatelessWidget {
@@ -14,6 +20,21 @@ class MainApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/dashboard': (context) => const HomePage(),
       },
+<<<<<<< HEAD
+=======
+      /*
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const HomePage();
+          } else {
+            return const LoginPage();
+          }
+        },
+      ),
+      */
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
     );
   }
 }
@@ -30,10 +51,25 @@ class _LoginPageState extends State<LoginPage> {
   final Auth _auth = Auth();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+<<<<<<< HEAD
 
   bool isLoading = false;
   bool isLoggedIn = false;
   
+=======
+  /*
+  final bool _isLogin = true;
+
+  handleSubmit() async {
+    if (!_formKey.currentState!.validate()) return;
+    final email = _emailController.value.text;
+    final password = _passwordController.value.text;
+    if (_isLogin) {
+      //await Auth().signInWithEmailAndPassword(email, password);
+    }
+  }
+*/
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -94,10 +130,15 @@ class _LoginPageState extends State<LoginPage> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
+<<<<<<< HEAD
                       obscureText: true,
                       decoration: InputDecoration(
                         fillColor: Colors.black,
                         
+=======
+                      decoration: InputDecoration(
+                        fillColor: Colors.black,
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                         hintText: 'Password',
                         prefixIcon: IconButton(
                           icon: Image.asset('images/password logo.png'),
@@ -139,6 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         padding: const EdgeInsets.all(10),
                       ),
+<<<<<<< HEAD
 
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -151,6 +193,15 @@ class _LoginPageState extends State<LoginPage> {
                       child: isLoading
                           ? const CircularProgressIndicator()
                           : const Text('Log In'),
+=======
+                      //onPressed: () => handleSubmit(),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          signInUser();
+                        }
+                      },
+                      child: const Text('Log In'),
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                     ),
                   ),
                 ],
@@ -185,6 +236,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+<<<<<<< HEAD
   void signInUser() async {
     
     dynamic authResult =
@@ -196,9 +248,21 @@ class _LoginPageState extends State<LoginPage> {
         isLoading = false;
         isLoggedIn = true;
       });
+=======
+    void signInUser() async {
+    dynamic authResult =
+        await _auth.loginUser(_emailController.text, _passwordController.text);
+    if (authResult == null) {
+      print('Sign in error. could not be able to login');
+    } else {
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
       _emailController.clear();
       _passwordController.clear();
       Navigator.pushNamed(context, '/dashboard');
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f

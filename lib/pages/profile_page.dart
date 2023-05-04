@@ -66,17 +66,28 @@ class _ProfilePageState extends State<ProfilePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color.fromARGB(246, 246, 246, 246),
+<<<<<<< HEAD
         body: SingleChildScrollView(
           child: Center(
             child: Column(
               children: [
                 const SizedBox(height: 120,),
+=======
+        body: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                 const CircleAvatar(
                   backgroundColor: Color.fromARGB(217, 217, 217, 217),
                   radius: 60,
                 ),
                 const SizedBox(
+<<<<<<< HEAD
                   height: 30,
+=======
+                  height: 20,
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                 ),
                 Row(
                   children: [
@@ -237,7 +248,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
                 const SizedBox(
+<<<<<<< HEAD
                   height: 40,
+=======
+                  height: 20,
+>>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                 ),
                 SizedBox(
                   height: 55,
