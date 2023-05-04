@@ -7,6 +7,9 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  cloud_firestore: ^4.5.3
+  firebase_auth: ^4.4.2
+  firebase_core: ^2.10.0
   flutter:
     sdk: flutter
   flutter_speed_dial: ^6.2.0
