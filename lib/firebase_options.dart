@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,11 +43,41 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDuo4LsqHp_rWKwUNH2WVGvHJQ8WWe9Xms',
+    appId: '1:20305195461:web:9ef65ff342d10aef119bac',
+    messagingSenderId: '20305195461',
+    projectId: 'resq-f629a',
+    authDomain: 'resq-f629a.firebaseapp.com',
+    storageBucket: 'resq-f629a.appspot.com',
+    measurementId: 'G-ZXBYVG9HV2',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBMOcXr2brwJIvKR1PUkPS0ChwEO5K_VAo',
-    appId: '1:308506875986:android:63bb7f35be9a1dd5ad278b',
-    messagingSenderId: '308506875986',
-    projectId: 'resq-d8869',
-    storageBucket: 'resq-d8869.appspot.com',
+    apiKey: 'AIzaSyCAPj8VJcbVzqO9DvZZqL5ZT3PN5MQWFB0',
+    appId: '1:20305195461:android:df25cef10b32dc50119bac',
+    messagingSenderId: '20305195461',
+    projectId: 'resq-f629a',
+    storageBucket: 'resq-f629a.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDBuoWUwmZazxnnzkcho1tSFty0gAwH5HY',
+    appId: '1:20305195461:ios:1ae644b5d1cb9743119bac',
+    messagingSenderId: '20305195461',
+    projectId: 'resq-f629a',
+    storageBucket: 'resq-f629a.appspot.com',
+    iosClientId: '20305195461-bh2799ar9d96aovq7d8fnnv7k7q1v7m6.apps.googleusercontent.com',
+    iosBundleId: 'com.example.resq',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDBuoWUwmZazxnnzkcho1tSFty0gAwH5HY',
+    appId: '1:20305195461:ios:1ae644b5d1cb9743119bac',
+    messagingSenderId: '20305195461',
+    projectId: 'resq-f629a',
+    storageBucket: 'resq-f629a.appspot.com',
+    iosClientId: '20305195461-bh2799ar9d96aovq7d8fnnv7k7q1v7m6.apps.googleusercontent.com',
+    iosBundleId: 'com.example.resq',
   );
 }

@@ -66,28 +66,17 @@ class _ProfilePageState extends State<ProfilePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color.fromARGB(246, 246, 246, 246),
-<<<<<<< HEAD
         body: SingleChildScrollView(
           child: Center(
             child: Column(
               children: [
                 const SizedBox(height: 120,),
-=======
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
->>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                 const CircleAvatar(
                   backgroundColor: Color.fromARGB(217, 217, 217, 217),
                   radius: 60,
                 ),
                 const SizedBox(
-<<<<<<< HEAD
                   height: 30,
-=======
-                  height: 20,
->>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
                 ),
                 Row(
                   children: [
@@ -247,38 +236,34 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-<<<<<<< HEAD
-                  height: 40,
-=======
-                  height: 20,
->>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f
-                ),
-                SizedBox(
-                  height: 55,
-                  width: 200,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      FirebaseAuth.instance.signOut();
+                // const SizedBox(
+                //   height: 40,
+                // ),
+                // SizedBox(
+                //   height: 55,
+                //   width: 200,
+                //   child: ElevatedButton(
+                //     onPressed: () {
+                //       FirebaseAuth.instance.signOut();
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        //to set border radius to button
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      padding: const EdgeInsets.all(10),
-                    ),
-                    child: const Text('Logout'),
-                  ),
-                ),
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => const LoginPage()),
+                //       );
+                //     },
+                //     style: ElevatedButton.styleFrom(
+                //       backgroundColor: Colors.green,
+                //       elevation: 4,
+                //       shape: RoundedRectangleBorder(
+                //         //to set border radius to button
+                //         borderRadius: BorderRadius.circular(15),
+                //       ),
+                //       padding: const EdgeInsets.all(10),
+                //     ),
+                //     child: const Text('Logout'),
+                //   ),
+                // ),
               ],
             ),
           ),

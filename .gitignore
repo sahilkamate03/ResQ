@@ -119,11 +119,7 @@ lib/generated_plugin_registrant.dart
 !*/ios/*/default.pbxuser
 !*/ios/*/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-<<<<<<< HEAD
 android/app/google-services.json
 ios/firebase_app_id_file.json
 ios/Runner/GoogleService-Info.plist
 lib/firebase_options.dart
-=======
-
->>>>>>> 9c8bd5ad71905ddc4b20277b7fdef50dcd10c43f

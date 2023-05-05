@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:res_q/pages/profile_page.dart';
+import 'login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,12 +22,13 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text('Good Morning'),
-          backgroundColor: Colors.black,
+          backgroundColor: const Color.fromARGB(255, 75, 175, 80),
           actions: <Widget>[
             SpeedDial(
               icon: Icons.settings,
-              backgroundColor: Colors.black,
-              activeBackgroundColor: Colors.transparent,
+              backgroundColor: const Color.fromARGB(255, 75, 175, 80),
+              activeBackgroundColor: const Color.fromARGB(255, 75, 175, 80),
+              elevation: 0.0,
               direction: SpeedDialDirection.down,
               children: [
                 SpeedDialChild(
@@ -37,6 +40,20 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(
                         builder: (context) => const ProfilePage(),
                       ),
+                    );
+                  },
+                ),
+                SpeedDialChild(
+                  child: const Icon(Icons.logout, color: Colors.white,),
+                  backgroundColor: Colors.red,
+                  label: 'Logout',
+                  onTap: () {
+                    FirebaseAuth.instance.signOut();
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
                     );
                   },
                 ),
