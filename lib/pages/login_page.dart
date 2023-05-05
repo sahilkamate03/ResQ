@@ -33,13 +33,13 @@ class _LoginPageState extends State<LoginPage> {
 
   bool isLoading = false;
   bool isLoggedIn = false;
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(246, 246, 246, 246),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: SingleChildScrollView(
           child: Center(
             child: Form(
@@ -47,15 +47,14 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 120,
+                    height: 0,
                   ),
-                  const CircleAvatar(
-                    backgroundColor: Color.fromARGB(217, 217, 217, 217),
-                    radius: 60,
-                    child: Icon(
-                      Icons.people_alt,
-                      size: 80,
-                      color: Colors.black,
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50,top: 70),
+                    child: ImageIcon(
+                      AssetImage("images/appLogo-background.png"),
+                      size: 200,
+                      color: Color.fromARGB(255, 75, 175, 80),
                     ),
                   ),
                   const SizedBox(
@@ -97,7 +96,6 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: true,
                       decoration: InputDecoration(
                         fillColor: Colors.black,
-                        
                         hintText: 'Password',
                         prefixIcon: IconButton(
                           icon: Image.asset('images/password logo.png'),
@@ -139,7 +137,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         padding: const EdgeInsets.all(10),
                       ),
-
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           setState(() {
@@ -186,7 +183,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void signInUser() async {
-    
     dynamic authResult =
         await _auth.loginUser(_emailController.text, _passwordController.text);
     if (authResult == null) {

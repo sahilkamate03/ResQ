@@ -45,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
     DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
         .instance
         .collection('Users')
-        .doc("User_Phoenix")
+        .doc(user.uid)
         .get();
 
     if (!snapshot.exists) {
@@ -54,9 +54,9 @@ class _ProfilePageState extends State<ProfilePage> {
     }
 
     setState(() {
-      name = snapshot.get('Name');
-      email = snapshot.get('Email');
-      info = snapshot.get('Info');
+      name = snapshot.get('name');
+      email = user.email;
+      info = snapshot.get('info');
     });
   }
 
@@ -65,7 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(246, 246, 246, 246),
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Center(
             child: Column(
