@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,37 +49,17 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDuo4LsqHp_rWKwUNH2WVGvHJQ8WWe9Xms',
-    appId: '1:20305195461:web:9ef65ff342d10aef119bac',
-    messagingSenderId: '20305195461',
-    projectId: 'resq-f629a',
-    authDomain: 'resq-f629a.firebaseapp.com',
-    storageBucket: 'resq-f629a.appspot.com',
-    measurementId: 'G-ZXBYVG9HV2',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCAPj8VJcbVzqO9DvZZqL5ZT3PN5MQWFB0',
-    appId: '1:20305195461:android:df25cef10b32dc50119bac',
+    apiKey: 'AIzaSyABRkg8_ukUlpVFoFeVdpAAWxFZE-OL0QY',
+    appId: '1:20305195461:android:82bba61009adb5fa119bac',
     messagingSenderId: '20305195461',
     projectId: 'resq-f629a',
     storageBucket: 'resq-f629a.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDBuoWUwmZazxnnzkcho1tSFty0gAwH5HY',
-    appId: '1:20305195461:ios:1ae644b5d1cb9743119bac',
-    messagingSenderId: '20305195461',
-    projectId: 'resq-f629a',
-    storageBucket: 'resq-f629a.appspot.com',
-    iosClientId: '20305195461-bh2799ar9d96aovq7d8fnnv7k7q1v7m6.apps.googleusercontent.com',
-    iosBundleId: 'com.example.resq',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDBuoWUwmZazxnnzkcho1tSFty0gAwH5HY',
-    appId: '1:20305195461:ios:1ae644b5d1cb9743119bac',
+    apiKey: 'AIzaSyB87AdpNaSUxQUbUfkh7ChOrkHkFEXHy_c',
+    appId: '1:20305195461:ios:c1199ab13e763f4d119bac',
     messagingSenderId: '20305195461',
     projectId: 'resq-f629a',
     storageBucket: 'resq-f629a.appspot.com',
