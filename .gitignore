@@ -277,5 +277,9 @@ cython_debug/
 
 android/app/google-services.json
 ios/firebase_app_id_file.json
+<<<<<<< HEAD
 lib/firebase_options.dart
 lib/functions/get_Info.dart
+=======
+lib/firebase_options.dart
+>>>>>>> c41c9a2bdd63bd9295597cc2a801090e6e758208
