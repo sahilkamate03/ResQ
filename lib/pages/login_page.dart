@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../functions/sign_in.dart';
-import 'home_page.dart';
+//import 'home_page.dart';
 
+/*
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -17,6 +18,7 @@ class MainApp extends StatelessWidget {
     );
   }
 }
+*/
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -36,30 +38,29 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: SingleChildScrollView(
-          child: Center(
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          resizeToAvoidBottomInset: true,
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+          body: Center(
             child: Form(
               key: _formKey,
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 0,
-                  ),
                   const Padding(
-                    padding: EdgeInsets.only(left: 50,top: 70),
+                    padding: EdgeInsets.only(left: 50, top: 50),
                     child: ImageIcon(
                       AssetImage("images/appLogo-background.png"),
                       size: 200,
                       color: Color.fromARGB(255, 75, 175, 80),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
@@ -154,29 +155,29 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-        ),
-        bottomSheet: Row(
-          children: const [
-            SizedBox(
-              width: 130,
-            ),
-            Text(
-              'Made with ',
-              style: TextStyle(),
-            ),
-            Icon(
-              Icons.favorite,
-              color: Colors.red,
-            ),
-            Text(
-              ' by',
-              style: TextStyle(),
-            ),
-            Text(
-              ' Null_Byte',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ],
+          bottomSheet: Row(
+            children: const [
+              SizedBox(
+                width: 130,
+              ),
+              Text(
+                'Made with ',
+                style: TextStyle(),
+              ),
+              Icon(
+                Icons.favorite,
+                color: Colors.red,
+              ),
+              Text(
+                ' by',
+                style: TextStyle(),
+              ),
+              Text(
+                ' Null_Byte',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );
