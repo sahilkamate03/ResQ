@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mapbox_gl/mapbox_gl.dart';
 
 class directionPage extends StatefulWidget {
   const directionPage({super.key});
@@ -11,31 +9,20 @@ class directionPage extends StatefulWidget {
 }
 
 class _directionPageState extends State<directionPage> {
+  late MapboxMapController _controller;
+
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: FlutterMap(
-        options: MapOptions(
-          center: LatLng(18.5204, 73.8567),
-          zoom: 9.2,
+      child: MapboxMap(
+        accessToken: "<your-access-token>",
+        initialCameraPosition: const CameraPosition(
+          target: LatLng(37.7749, -122.4194),
+          zoom: 12.0,
         ),
-        nonRotatedChildren: [
-          RichAttributionWidget(
-            attributions: [
-              TextSourceAttribution(
-                'OpenStreetMap contributors',
-                onTap: () =>
-                    launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
-              ),
-            ],
-          ),
-        ],
-        children: [
-          TileLayer (
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'com.example.app',
-          ),
-        ],
+        onMapCreated: (MapboxMapController controller) {
+          _controller = controller;
+        },
       ),
     );
   }

@@ -12,10 +12,14 @@ dependencies:
   firebase_core: ^2.10.0
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.0.2
   flutter_map: ^4.0.0
+  flutter_mapbox_navigation: ^0.1.0
   flutter_speed_dial: ^6.2.0
   flutter_svg: ^2.0.5
+  http: ^0.13.6
   latlong2: ^0.8.1
+  mapbox_gl: ^0.16.0
   url_launcher: ^6.1.10
 
 dev_dependencies:
@@ -27,3 +31,4 @@ flutter:
   uses-material-design: true
   assets:
     - images/
+    - .env
