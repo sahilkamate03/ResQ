@@ -3,14 +3,14 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class directionPage extends StatefulWidget {
-  const directionPage({super.key});
+class DirectionPage extends StatefulWidget {
+  const DirectionPage({super.key});
 
   @override
-  State<directionPage> createState() => _directionPageState();
+  State<DirectionPage> createState() => _DirectionPageState();
 }
 
-class _directionPageState extends State<directionPage> {
+class _DirectionPageState extends State<DirectionPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
