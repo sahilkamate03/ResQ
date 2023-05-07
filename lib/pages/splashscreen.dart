@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SizedBox(
         width: double.infinity,
         child: Column(
@@ -33,11 +33,10 @@ class _SplashScreenState extends State<SplashScreen> {
               padding: EdgeInsets.only(left: 60),
               child: SizedBox(
                 height: 600,
-                width: 400,
+                width: 500,
                 child: Image(
-                  image: AssetImage('images/logo-white.png'),
-                  fit: BoxFit.fill,
-                  width: 300,
+                  image: AssetImage('images/resQ_logo.png'),
+                  width: 500,
                 ),
               ),
             ),
@@ -45,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 60,
             ),
             SpinKitSpinningLines(
-              color: Colors.orange,
+              color: Colors.green,
               lineWidth: 5,
               size: 50.0,
             )

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:res_q/functions/shimmering_effect.dart';
 
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
   @override
@@ -28,6 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
         _isLoading = false;
       });
     });
+    
     super.initState();
   }
 
@@ -94,15 +94,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 100,
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.transparent,
-                            radius: 90,
-                            child: ImageIcon(
-                              AssetImage("images/resQ_logo.png"),
-                              size: 200,
-                              color: Color.fromARGB(255, 75, 175, 80),
-                            ),
+                          padding: EdgeInsets.only(left: 50),
+                          child: ImageIcon(
+                            AssetImage("images/resQ_logo.png"),
+                            size: 200,
+                            color: Color.fromARGB(255, 75, 175, 80),
                           ),
                         ),
                         const SizedBox(

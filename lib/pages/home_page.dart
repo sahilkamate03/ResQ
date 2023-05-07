@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   Future<Widget> buildMyWidget() async {
     try {
       Container mycontainer = Container(
-        height: MediaQuery.of(context).size.height - 280,
+        height: MediaQuery.of(context).size.height - 350,
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: FlutterMap(
           options: MapOptions(

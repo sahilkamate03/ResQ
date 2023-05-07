@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             fillColor: Colors.black,
                             //hintText: 'Password',
-                            labelText: 'passwordg',
+                            labelText: 'password',
                             prefixIcon: IconButton(
                               icon: Image.asset('images/password logo.png'),
                               color: const Color.fromRGBO(98, 185, 102, 0),

@@ -62,7 +62,7 @@ class _ProfilePageShimmerState extends State<ProfilePageShimmer> {
       backgroundColor: Colors.white,
       body: Shimmer.fromColors(
         baseColor: Colors.grey[350]!,
-        highlightColor: const Color.fromARGB(26, 8, 182, 52),
+        highlightColor: const Color.fromARGB(26, 91, 91, 91),
         child: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -74,8 +74,13 @@ class _ProfilePageShimmerState extends State<ProfilePageShimmer> {
                 Container(
                   margin: const EdgeInsets.all(20.0),
                   child: const Center(
-                    child: CircleAvatar(
-                      radius: 90.0,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 50),
+                      child: ImageIcon(
+                        AssetImage("images/resQ_logo.png"),
+                        size: 200,
+                        color: Color.fromARGB(255, 75, 175, 80),
+                      ),
                     ),
                   ),
                 ),

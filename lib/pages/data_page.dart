@@ -53,7 +53,7 @@ class _DataPageState extends State<DataPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.only(left:20.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
