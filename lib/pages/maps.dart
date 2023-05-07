@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class directionPage extends StatefulWidget {
-  const directionPage({super.key});
+class DirectionPage extends StatefulWidget {
+  const DirectionPage({super.key});
 
   @override
-  State<directionPage> createState() => _directionPageState();
+  State<DirectionPage> createState() => _DirectionPageState();
 }
 
-class _directionPageState extends State<directionPage> {
-  late MapboxMapController _controller;
-
+class _DirectionPageState extends State<DirectionPage> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: MapboxMap(
-        accessToken: "<your-access-token>",
-        initialCameraPosition: const CameraPosition(
-          target: LatLng(37.7749, -122.4194),
-          zoom: 12.0,
-        ),
-        onMapCreated: (MapboxMapController controller) {
-          _controller = controller;
-        },
-      ),
-    );
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(title: const Text('Hello')));
   }
 }
