@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:res_q/functions/shimmering_effect.dart';
-import 'package:res_q/pages/splashscreen.dart';
 //import 'package:go_router/go_router.dart';
 import '../../functions/sign_in.dart';
 import '../main.dart';
@@ -15,7 +14,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //initialRoute: '/dashboard',
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+      home: HomePage(),
       routes: {
         '/login': (context) => const LoginPage(),
         '/dashboard': (context) => const HomePage(),
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                             fillColor: Colors.black,
                             focusColor: Colors.black,
                             //hintText: 'Username',
-                            labelText: 'username',
+                            labelText: 'Username',
                             prefixIcon: IconButton(
                               onPressed: () {},
                               icon: Image.asset('images/profile_logo.png'),
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             fillColor: Colors.black,
                             //hintText: 'Password',
-                            labelText: 'password',
+                            labelText: 'Password',
                             prefixIcon: IconButton(
                               icon: Image.asset('images/password logo.png'),
                               color: const Color.fromRGBO(98, 185, 102, 0),

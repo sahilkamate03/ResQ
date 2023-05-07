@@ -14,7 +14,10 @@ class _DirectionPageState extends State<DirectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(title: const Text('Hello')));
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            title: const Text('TestMode')
+            )
+    );
   }
 }

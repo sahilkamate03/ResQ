@@ -52,8 +52,8 @@ class _DataPageState extends State<DataPage> {
                         color: Color.fromARGB(255, 75, 175, 80),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left:20.0),
+                    Center(
+                      // padding: const EdgeInsets.all(10),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
