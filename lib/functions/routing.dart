@@ -5,8 +5,6 @@ import 'package:res_q/pages/login_page.dart';
 import 'package:res_q/pages/profile_page.dart';
 import 'package:res_q/pages/splashscreen.dart';
 
-import '../pages/maps.dart';
-
 /// The route configuration.
 final GoRouter _router = GoRouter(
   initialLocation: '/splashscreen',
@@ -35,12 +33,6 @@ final GoRouter _router = GoRouter(
             return const ProfilePage();
           },
         ),
-        GoRoute(
-          path: 'map',
-          builder: (BuildContext context, GoRouterState state) {
-            return const DirectionPage();
-          },
-        ),
       ],
     ),
   ],
@@ -55,7 +47,6 @@ class Router extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: _router,
-
     );
   }
 }
