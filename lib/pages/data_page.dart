@@ -17,6 +17,7 @@ class _DataPageState extends State<DataPage> {
   TextEditingController arduinolongitudeController = TextEditingController();
   TextEditingController hospitallatitudeController = TextEditingController();
   TextEditingController hospitallongitudeController = TextEditingController();
+  TextEditingController laneController = TextEditingController();
 
   bool isLoading = false;
 /*
@@ -362,8 +363,42 @@ class _DataPageState extends State<DataPage> {
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            fillColor: Colors.black,
+                            focusColor: Colors.black,
+                            //hintText: 'Username',
+                            labelText: 'Lane number',
+                            prefixIcon: Icon(Icons.add_road),
+                            border:  OutlineInputBorder(
+                              borderRadius: BorderRadius.zero,
+                              borderSide: BorderSide(
+                                width: 4.0,
+                                color: Colors.black,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                          ),
+                          controller: laneController,
+                          validator: (value) {
+                            if (value == null ) {
+                              setState(() {
+                                isLoading = false;
+                              });
+                              return 'Please Enter valid value';
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20,),
                     SizedBox(
                       height: 55,
                       width: 200,

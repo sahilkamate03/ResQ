@@ -1,7 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:res_q/pages/home_page.dart';
+import '../functions/shimmering_effect.dart';
 import 'login_page.dart';
+
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      //initialRoute: '/dashboard',
+       home: const SplashScreen(),
+      //home: const HomePage(),
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/dashboard': (context) => const HomePage(),
+        '/shimmer': (context) => const ProfilePageShimmer(),
+      },
+    );
+  }
+}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

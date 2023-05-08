@@ -6,6 +6,7 @@ import '../../functions/sign_in.dart';
 import '../main.dart';
 import 'home_page.dart';
 
+/*
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -24,6 +25,7 @@ class MainApp extends StatelessWidget {
     );
   }
 }
+*/
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

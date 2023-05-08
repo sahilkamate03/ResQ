@@ -242,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                             },
                             controller: _searchController,
                             decoration: InputDecoration(
-                              hintText: 'Search...',
+                              hintText: 'Search location...',
                               suffixIcon: IconButton(
                                 icon: const Icon(Icons.clear),
                                 onPressed: () {
