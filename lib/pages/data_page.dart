@@ -18,7 +18,6 @@ class _DataPageState extends State<DataPage> {
   TextEditingController hospitallatitudeController = TextEditingController();
   TextEditingController hospitallongitudeController = TextEditingController();
 
-
   bool isLoading = false;
 /*
   @override
@@ -52,313 +51,318 @@ class _DataPageState extends State<DataPage> {
                         color: Color.fromARGB(255, 75, 175, 80),
                       ),
                     ),
-                    Center(
-                      // padding: const EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          //1st row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 100,
-                                child: TextFormField(
-                                  focusNode: _textFieldFocusNode,
-                                  onTap: () {
-                                    _textFieldFocusNode.unfocus();
-                                  },
-                                  decoration: InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    prefixIcon: Center(
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.location_on,
-                                          color: Colors.green,
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            //1st row
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 100,
+                                  child: TextFormField(
+                                    focusNode: _textFieldFocusNode,
+                                    onTap: () {
+                                      _textFieldFocusNode.unfocus();
+                                    },
+                                    decoration: InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      prefixIcon: Center(
+                                        child: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            Icons.location_on,
+                                            color: Colors.green,
+                                          ),
+                                          alignment: Alignment.center,
                                         ),
-                                        alignment: Alignment.center,
                                       ),
-                                    ),
-                                    border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 145,
-                                child: TextFormField(
-                                  focusNode: _textFieldFocusNode,
-                                  onTap: () {
-                                    _textFieldFocusNode.unfocus();
-                                  },
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '        Latitude',
-                                    hintStyle:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                                      border: const OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 145,
-                                child: TextFormField(
-                                  focusNode: _textFieldFocusNode,
-                                  onTap: () {
-                                    _textFieldFocusNode.unfocus();
-                                  },
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '      Longitude',
-                                    hintStyle:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                                SizedBox(
+                                  width: 145,
+                                  child: TextFormField(
+                                    focusNode: _textFieldFocusNode,
+                                    onTap: () {
+                                      _textFieldFocusNode.unfocus();
+                                    },
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '        Latitude',
+                                      hintStyle: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
+                                SizedBox(
+                                  width: 145,
+                                  child: TextFormField(
+                                    focusNode: _textFieldFocusNode,
+                                    onTap: () {
+                                      _textFieldFocusNode.unfocus();
+                                    },
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '      Longitude',
+                                      hintStyle: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
 
-                          //2nd Row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 100,
-                                child: TextFormField(
-                                  focusNode: _textFieldFocusNode,
-                                  onTap: () {
-                                    _textFieldFocusNode.unfocus();
-                                  },
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '  Arduino',
-                                    hintStyle:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                            //2nd Row
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 100,
+                                  child: TextFormField(
+                                    focusNode: _textFieldFocusNode,
+                                    onTap: () {
+                                      _textFieldFocusNode.unfocus();
+                                    },
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '  Arduino',
+                                      hintStyle: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 145,
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '    Coordinates',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                                SizedBox(
+                                  width: 145,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '    Coordinates',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
+                                    controller: arduinolatitudeController,
+                                    validator: (value) {
+                                      if (value == null) {
+                                        setState(() {
+                                          isLoading = false;
+                                        });
+                                        return 'Please Enter valid coordinates';
+                                      } else {
+                                        /*
+                                        String coordinates =
+                                            arduinoCoordinateController.text;
+                                        List<String> latLng =
+                                            coordinates.split(",");
+                                        latitude = 0;
+                                        latitude = double.parse(latLng[0].trim());
+                                        */
+                                        return null;
+                                      }
+                                    },
                                   ),
-                                  controller: arduinolatitudeController,
-                                  validator: (value) {
-                                    if (value == null) {
-                                      setState(() {
-                                        isLoading = false;
-                                      });
-                                      return 'Please Enter valid coordinates';
-                                    } else {
-                                      /*
-                                      String coordinates =
-                                          arduinoCoordinateController.text;
-                                      List<String> latLng =
-                                          coordinates.split(",");
-                                      latitude = 0;
-                                      latitude = double.parse(latLng[0].trim());
-                                      */
-                                      return null;
-                                    }
-                                  },
                                 ),
-                              ),
-                              SizedBox(
-                                width: 145,
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '    Coordinates',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                                SizedBox(
+                                  width: 145,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '    Coordinates',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
+                                    controller: arduinolongitudeController,
+                                    validator: (value) {
+                                      if (value == null) {
+                                        setState(() {
+                                          isLoading = false;
+                                        });
+                                        return 'Please Enter valid coordinates';
+                                      } else {
+                                        /*
+                                        String coordinates =
+                                            arduinoCoordinateController.text;
+                                        List<String> latLng =
+                                            coordinates.split(",");
+                                        longitude = 0;
+                                        longitude =
+                                            double.parse(latLng[1].trim());
+                                            */
+                                        return null;
+                                      }
+                                    },
                                   ),
-                                  controller: arduinolongitudeController,
-                                  validator: (value) {
-                                    if (value == null) {
-                                      setState(() {
-                                        isLoading = false;
-                                      });
-                                      return 'Please Enter valid coordinates';
-                                    } else {
-                                      /*
-                                      String coordinates =
-                                          arduinoCoordinateController.text;
-                                      List<String> latLng =
-                                          coordinates.split(",");
-                                      longitude = 0;
-                                      longitude =
-                                          double.parse(latLng[1].trim());
-                                          */
-                                      return null;
-                                    }
-                                  },
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
 
-                          //3rd Row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 100,
-                                child: TextFormField(
-                                  focusNode: _textFieldFocusNode,
-                                  onTap: () {
-                                    _textFieldFocusNode.unfocus();
-                                  },
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '  Hospital',
-                                    hintStyle:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                            //3rd Row
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 100,
+                                  child: TextFormField(
+                                    focusNode: _textFieldFocusNode,
+                                    onTap: () {
+                                      _textFieldFocusNode.unfocus();
+                                    },
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '  Hospital',
+                                      hintStyle: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 145,
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '    Coordinates',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                                SizedBox(
+                                  width: 145,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '    Coordinates',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
+                                    controller: hospitallatitudeController,
+                                    validator: (value) {
+                                      if (value == null) {
+                                        setState(() {
+                                          isLoading = false;
+                                        });
+                                        return 'Please Enter valid coordinates';
+                                      } else {
+                                        /*
+                                        String coordinates =
+                                            arduinoCoordinateController.text;
+                                        List<String> latLng =
+                                            coordinates.split(",");
+                                        latitude = 0;
+                                        latitude = double.parse(latLng[0].trim());
+                                        */
+                                        return null;
+                                      }
+                                    },
                                   ),
-                                  controller: hospitallatitudeController,
-                                  validator: (value) {
-                                    if (value == null) {
-                                      setState(() {
-                                        isLoading = false;
-                                      });
-                                      return 'Please Enter valid coordinates';
-                                    } else {
-                                      /*
-                                      String coordinates =
-                                          arduinoCoordinateController.text;
-                                      List<String> latLng =
-                                          coordinates.split(",");
-                                      latitude = 0;
-                                      latitude = double.parse(latLng[0].trim());
-                                      */
-                                      return null;
-                                    }
-                                  },
                                 ),
-                              ),
-                              SizedBox(
-                                width: 145,
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    fillColor: Colors.black,
-                                    focusColor: Colors.black,
-                                    hintText: '    Coordinates',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.zero,
-                                      borderSide: BorderSide(
-                                        width: 4.0,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid,
+                                SizedBox(
+                                  width: 145,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                      fillColor: Colors.black,
+                                      focusColor: Colors.black,
+                                      hintText: '    Coordinates',
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                          width: 4.0,
+                                          color: Colors.black,
+                                          style: BorderStyle.solid,
+                                        ),
                                       ),
                                     ),
+                                    controller: hospitallongitudeController,
+                                    validator: (value) {
+                                      if (value == null) {
+                                        setState(() {
+                                          isLoading = false;
+                                        });
+                                        return 'Please Enter valid coordinates';
+                                      } else {
+                                        /*
+                                        String coordinates =
+                                            arduinoCoordinateController.text;
+                                        List<String> latLng =
+                                            coordinates.split(",");
+                                        longitude = 0;
+                                        longitude =
+                                            double.parse(latLng[1].trim());
+                                            */
+                                        return null;
+                                      }
+                                    },
                                   ),
-                                  controller: hospitallongitudeController,
-                                  validator: (value) {
-                                    if (value == null) {
-                                      setState(() {
-                                        isLoading = false;
-                                      });
-                                      return 'Please Enter valid coordinates';
-                                    } else {
-                                      /*
-                                      String coordinates =
-                                          arduinoCoordinateController.text;
-                                      List<String> latLng =
-                                          coordinates.split(",");
-                                      longitude = 0;
-                                      longitude =
-                                          double.parse(latLng[1].trim());
-                                          */
-                                      return null;
-                                    }
-                                  },
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     SizedBox(
                       height: 55,
@@ -429,7 +433,6 @@ class _DataPageState extends State<DataPage> {
     debugPrint('hospital');
     debugPrint(hospitallatitudeController.text.toString());
     debugPrint(hospitallongitudeController.text.toString());
-
 
     /*
     //String arduinoCoordinates = arduinoCoordinateController.text;

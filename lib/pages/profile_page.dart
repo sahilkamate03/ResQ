@@ -125,6 +125,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                     child: Stack(
                                       children: [
                                         TextField(
+                                          readOnly: true,
+
                                           focusNode: _textFieldFocusNode,
                                           onTap: () {
                                             _textFieldFocusNode.unfocus();
@@ -135,14 +137,23 @@ class _ProfilePageState extends State<ProfilePage> {
                                             contentPadding:
                                                 EdgeInsets.all(10.0),
                                             //hintText: 'Username',
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.zero,
+                                              borderSide: BorderSide(
+                                                width: 1.0,
+                                                color: Colors.grey,
+                                                style: BorderStyle.solid,
+                                              ),
+                                            ),
                                             border: OutlineInputBorder(
                                               borderRadius: BorderRadius.zero,
                                               borderSide: BorderSide(
-                                                width: 4.0,
+                                                width: 5.0,
                                                 color: Colors.black,
                                                 style: BorderStyle.solid,
                                               ),
                                             ),
+                                            
                                           ),
                                         ),
                                         Padding(
@@ -187,6 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     child: Stack(
                                       children: [
                                         TextField(
+                                          readOnly: true,
                                           focusNode: _textFieldFocusNode,
                                           onTap: () {
                                             _textFieldFocusNode.unfocus();
@@ -197,10 +209,18 @@ class _ProfilePageState extends State<ProfilePage> {
                                             contentPadding:
                                                 EdgeInsets.all(10.0),
                                             //hintText: 'sample@gmail.com',
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.zero,
+                                              borderSide: BorderSide(
+                                                width: 1.0,
+                                                color: Colors.grey,
+                                                style: BorderStyle.solid,
+                                              ),
+                                            ),
                                             border: OutlineInputBorder(
                                               borderRadius: BorderRadius.zero,
                                               borderSide: BorderSide(
-                                                width: 4.0,
+                                                width: 5.0,
                                                 color: Colors.black,
                                                 style: BorderStyle.solid,
                                               ),
@@ -248,6 +268,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     child: Stack(
                                       children: [
                                         TextField(
+                                          readOnly: true,
                                           focusNode: _textFieldFocusNode,
                                           onTap: () {
                                             _textFieldFocusNode.unfocus();
@@ -258,10 +279,18 @@ class _ProfilePageState extends State<ProfilePage> {
                                             contentPadding:
                                                 EdgeInsets.all(10.0),
                                             //hintText: 'Information',
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.zero,
+                                              borderSide: BorderSide(
+                                                width: 1.0,
+                                                color: Colors.grey,
+                                                style: BorderStyle.solid,
+                                              ),
+                                            ),
                                             border: OutlineInputBorder(
                                               borderRadius: BorderRadius.zero,
                                               borderSide: BorderSide(
-                                                width: 4.0,
+                                                width: 5.0,
                                                 color: Colors.black,
                                                 style: BorderStyle.solid,
                                               ),

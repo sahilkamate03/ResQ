@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                       //GoRouter.of(context).go('/splashscreen/login');
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyApp()),
+                        MaterialPageRoute(builder: (context) => const MyApp()),
                       );
                     },
                   ),
@@ -353,7 +353,6 @@ class _HomePageState extends State<HomePage> {
           //     FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
             // isExtended: true,
-            child: Icon(Icons.gps_fixed),
             backgroundColor: Colors.green,
             onPressed: () async {
               position = await _getGeoLocationPosition();
@@ -361,6 +360,7 @@ class _HomePageState extends State<HomePage> {
                 position;
               });
             },
+            child: const Icon(Icons.gps_fixed),
           ),
         ),
       ),
