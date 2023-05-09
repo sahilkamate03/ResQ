@@ -126,7 +126,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                       children: [
                                         TextField(
                                           readOnly: true,
-
                                           focusNode: _textFieldFocusNode,
                                           onTap: () {
                                             _textFieldFocusNode.unfocus();
