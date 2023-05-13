@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //initialRoute: '/dashboard',
-       home: const SplashScreen(),
+      home: const HomePage(),
       //home: const HomePage(),
       routes: {
         '/login': (context) => const LoginPage(),
@@ -36,8 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(milliseconds: 3000)).then((value) {
       Navigator.of(context).pushReplacement(
-          CupertinoPageRoute(builder: (ctx) =>  const LoginPage()));
-         //GoRouter.of(context).go('/splashscreen/login');
+          CupertinoPageRoute(builder: (ctx) => const LoginPage()));
+      //GoRouter.of(context).go('/splashscreen/login');
     });
   }
 
