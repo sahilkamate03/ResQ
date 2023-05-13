@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
+  flutter_launcher_icons: ^0.13.1
   flutter_map: ^4.0.0
   flutter_shimmer: ^2.1.2
   flutter_speed_dial: ^6.2.0
@@ -36,3 +37,12 @@ flutter:
   assets:
     - images/
     - .env
+
+flutter_launcher_icons:
+  ios: true
+  adaptive_icon_background: "#000"
+  android: true
+  remove_alpha_ios: true
+  remove_alpha_android: true
+  image_path: "images/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21

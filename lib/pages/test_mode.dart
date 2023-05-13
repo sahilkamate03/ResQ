@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:geocoding/geocoding.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 
@@ -29,7 +28,18 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   String location = 'Null, Press Button';
-  // String address = 'search';
+  String getDataBtn = 'Refresh';
+  bool serverOnline = false;
+  late Timer _timer;
+
+  Future<bool> isServerOnline(String url) async {
+    try {
+      final response = await http.get(Uri.parse(url));
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
 
   Future<Position> _getGeoLocationPosition() async {
     bool serviceEnabled;
@@ -81,10 +91,6 @@ class _HomepageState extends State<Homepage> {
   // }
 
   void sendPostRequest() async {
-    print('hello');
-    String url = 'https://resq.sahilkamate.repl.co/post-location';
-    Map<String, String> headers = {"Content-type": "application/json"};
-
     Position position = await _getGeoLocationPosition();
     Map<String, String> data = {
       'latitude': '${position.latitude}',
@@ -99,7 +105,6 @@ class _HomepageState extends State<Homepage> {
     );
 
     location = 'Lat: ${position.latitude} , Long: ${position.longitude}';
-    setState(() {});
 
     // Check the response status code.
     if (response.statusCode == 200) {
@@ -109,12 +114,14 @@ class _HomepageState extends State<Homepage> {
       // The request failed.
       print('Request failed');
     }
+    setState(() {});
   }
 
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 10), (timer) {
+    _timer =Timer.periodic(Duration(seconds: 10), (timer) async {
+      serverOnline = await isServerOnline('https://resq.sahilkamate.repl.co');
       sendPostRequest();
     });
   }
@@ -125,12 +132,6 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         title: const Text('Test Mode'), // Add your desired title text here
         backgroundColor: Colors.green,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       body: Center(
         child: Column(
@@ -151,30 +152,35 @@ class _HomepageState extends State<Homepage> {
               height: 10,
             ),
             // const Text(
-            //   'ADDRESS',
+            //   response,
             //   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             // ),
             // const SizedBox(
             //   height: 10,
             // ),
-            // Text('${address}'),
+            Text('Server Online: $serverOnline'),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   elevation: 4,
-                  
                 ),
                 onPressed: () async {
-                  Position position = await _getGeoLocationPosition();
-                  location =
-                      'Lat: ${position.latitude} , Long: ${position.longitude}';
+                  serverOnline =
+                      await isServerOnline('https://resq.sahilkamate.repl.co');
+                  sendPostRequest();
                   setState(() {});
                   // getAddressFromLatLong(position);
                 },
-                child: const Text('Get Location'))
+                child: Text(getDataBtn))
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel(); // cancel any ongoing timers
+    super.dispose();
   }
 }

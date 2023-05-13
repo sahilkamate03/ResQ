@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class DataPage extends StatefulWidget {
   const DataPage({Key? key}) : super(key: key);
@@ -17,7 +18,8 @@ class _DataPageState extends State<DataPage> {
   TextEditingController arduinolongitudeController = TextEditingController();
   TextEditingController hospitallatitudeController = TextEditingController();
   TextEditingController hospitallongitudeController = TextEditingController();
-  TextEditingController laneController = TextEditingController();
+  TextEditingController laneController1 = TextEditingController();
+  TextEditingController laneController2 = TextEditingController();
 
   bool isLoading = false;
 /*
@@ -367,15 +369,16 @@ class _DataPageState extends State<DataPage> {
                     ),
                     Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 10),
                         child: TextFormField(
                           decoration: const InputDecoration(
                             fillColor: Colors.black,
                             focusColor: Colors.black,
                             //hintText: 'Username',
-                            labelText: 'Lane number',
+                            labelText: 'Source Lane',
                             prefixIcon: Icon(Icons.add_road),
-                            border:  OutlineInputBorder(
+                            border: OutlineInputBorder(
                               borderRadius: BorderRadius.zero,
                               borderSide: BorderSide(
                                 width: 4.0,
@@ -384,9 +387,9 @@ class _DataPageState extends State<DataPage> {
                               ),
                             ),
                           ),
-                          controller: laneController,
+                          controller: laneController1,
                           validator: (value) {
-                            if (value == null ) {
+                            if (value == null) {
                               setState(() {
                                 isLoading = false;
                               });
@@ -398,7 +401,42 @@ class _DataPageState extends State<DataPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20,),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            fillColor: Colors.black,
+                            focusColor: Colors.black,
+                            //hintText: 'Username',
+                            labelText: 'Destination Lane',
+                            prefixIcon: Icon(Icons.add_road),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.zero,
+                              borderSide: BorderSide(
+                                width: 4.0,
+                                color: Colors.black,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                          ),
+                          controller: laneController2,
+                          validator: (value) {
+                            if (value == null) {
+                              setState(() {
+                                isLoading = false;
+                              });
+                              return 'Please Enter valid value';
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     SizedBox(
                       height: 55,
                       width: 200,
@@ -460,7 +498,7 @@ class _DataPageState extends State<DataPage> {
     );
   }
 
-  void submitData() {
+  Future<void> submitData() async {
     debugPrint('arduino');
     debugPrint(arduinolatitudeController.text.toString());
     debugPrint(arduinolongitudeController.text.toString());
@@ -469,6 +507,28 @@ class _DataPageState extends State<DataPage> {
     debugPrint(hospitallatitudeController.text.toString());
     debugPrint(hospitallongitudeController.text.toString());
 
+    debugPrint(laneController1.text.toString());
+    debugPrint(laneController2.text.toString());
+
+    Map<String, String> data = {
+      'arduinoLatitude': '${arduinolatitudeController.text.toString()}',
+      'arduinoLongitude': '${arduinolongitudeController.text.toString()}',
+      'hospitalLatitude': '${hospitallatitudeController.text.toString()}',
+      'hospitalLongitude': '${hospitallongitudeController.text.toString()}',
+      'sourceLane': '${laneController1.text.toString()}',
+      'destinationLane': '${laneController2.text.toString()}'
+    };
+
+    // Create a POST request.
+    Uri uri = Uri.parse('https://resq.sahilkamate.repl.co/post-coordinates');
+    http.Response response = await http.post(
+      uri,
+      body: data,
+    );
+
+    setState(() {
+      isLoading = false;
+    });
     /*
     //String arduinoCoordinates = arduinoCoordinateController.text;
     String coordinates = arduinoCoordinateController.text;
