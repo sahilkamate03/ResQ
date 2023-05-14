@@ -4,6 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:res_q/pages/home_page.dart';
 import '../functions/shimmering_effect.dart';
 import 'login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -13,7 +14,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //initialRoute: '/dashboard',
-      home: const HomePage(),
+      home: const LoginPage(),
       //home: const HomePage(),
       routes: {
         '/login': (context) => const LoginPage(),
@@ -34,10 +35,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 3000)).then((value) {
+    Future.delayed(const Duration(milliseconds: 000)).then((value) {
       Navigator.of(context).pushReplacement(
           CupertinoPageRoute(builder: (ctx) => const LoginPage()));
       //GoRouter.of(context).go('/splashscreen/login');
+    });
+
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user != null) {
+        print(user.uid);
+        Navigator.pushNamed(context, '/dashboard');
+      }
     });
   }
 

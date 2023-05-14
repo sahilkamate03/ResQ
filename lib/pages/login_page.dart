@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:res_q/functions/shimmering_effect.dart';
 //import 'package:go_router/go_router.dart';
 import '../../functions/sign_in.dart';
 import '../main.dart';
-import 'home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 /*
 class MainApp extends StatelessWidget {
@@ -34,6 +34,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user != null) {
+        print(user.uid);
+        Navigator.pushNamed(context, '/dashboard');
+      }
+    });
+  }
+
   final _formKey = GlobalKey<FormState>();
 
   final Auth _auth = Auth();

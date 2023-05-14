@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const Homepage(),
     );
@@ -120,7 +120,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     super.initState();
-    _timer =Timer.periodic(Duration(seconds: 10), (timer) async {
+    _timer =Timer.periodic(const Duration(seconds: 10), (timer) async {
       serverOnline = await isServerOnline('https://resq.sahilkamate.repl.co');
       sendPostRequest();
     });

@@ -499,16 +499,16 @@ class _DataPageState extends State<DataPage> {
   }
 
   Future<void> submitData() async {
-    debugPrint('arduino');
-    debugPrint(arduinolatitudeController.text.toString());
-    debugPrint(arduinolongitudeController.text.toString());
+    // debugPrint('arduino');
+    // debugPrint(arduinolatitudeController.text.toString());
+    // debugPrint(arduinolongitudeController.text.toString());
 
-    debugPrint('hospital');
-    debugPrint(hospitallatitudeController.text.toString());
-    debugPrint(hospitallongitudeController.text.toString());
+    // debugPrint('hospital');
+    // debugPrint(hospitallatitudeController.text.toString());
+    // debugPrint(hospitallongitudeController.text.toString());
 
-    debugPrint(laneController1.text.toString());
-    debugPrint(laneController2.text.toString());
+    // debugPrint(laneController1.text.toString());
+    // debugPrint(laneController2.text.toString());
 
     Map<String, String> data = {
       'arduinoLatitude': '${arduinolatitudeController.text.toString()}',
