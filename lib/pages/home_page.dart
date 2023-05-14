@@ -185,9 +185,6 @@ class _HomePageState extends State<HomePage> {
                         backgroundColor: Colors.white,
                         label: 'Test Mode',
                         onTap: () {
-                          FirebaseAuth.instance.signOut();
-                          isLoggedIn = false;
-                          //GoRouter.of(context).go('/splashscreen/login');
                           Navigator.push(
                             context,
                             MaterialPageRoute(

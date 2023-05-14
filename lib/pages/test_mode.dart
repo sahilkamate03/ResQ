@@ -109,12 +109,16 @@ class _HomepageState extends State<Homepage> {
     // Check the response status code.
     if (response.statusCode == 200) {
       // The request was successful.
-      debugPrint('Request successful');
+      print('Request successful');
     } else {
       // The request failed.
-      debugPrint('Request failed');
+      print('Request failed');
     }
-    setState(() {});
+
+    if (mounted)
+    {
+      setState(() {});
+    }
   }
 
   @override
