@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user != null) {
-        print(user.uid);
+        debugPrint(user.uid);
         Navigator.pushNamed(context, '/dashboard');
       }
     });
