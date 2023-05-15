@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-import random
 import math
 
 app = Flask(__name__)
@@ -10,18 +9,22 @@ ambulanceLon = 80
 arduinoLat = 200
 arduinoLon = 200
 
-sourceLane =0
-destinationLane =3
+hospitalLat = 18.553107087008183
+hospitalLon = 73.83820119465052
+
+sourceLane = 0
+destinationLane = 3
+
 
 def distance(lat1, lon1, lat2, lon2):
     # convert decimal degrees to radians
     lon1, lat1, lon2, lat2 = map(math.radians, [lon1, lat1, lon2, lat2])
     # haversine formula
-    dlon = lon2 - lon1 
-    dlat = lat2 - lat1 
-    a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2
-    c = 2 * math.asin(math.sqrt(a)) 
-    # 6367 km is the radius of the Earth
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = math.sin(
+        dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+    c = 2 * math.asin(math.sqrt(a))
     km = 6367 * c
     return km
 
@@ -29,8 +32,7 @@ def distance(lat1, lon1, lat2, lon2):
 def hello_world():
     global sourceLane
     global destinationLane
-    
-    dist = random.randint(1, 100)
+
     response = {
         'name': 'ResQ',
         'sourceLane': int(sourceLane),
@@ -42,27 +44,40 @@ def hello_world():
 
 @app.route('/post-location', methods=['POST'])
 def post_location():
-    # Retrieve the latitude and longitude from the request
     global ambulanceLat
     global ambulanceLon
-    global sourceLane
-    global destinationLane
-    
-    
+
     ambulanceLat = float(request.form['latitude'])
     ambulanceLon = float(request.form['longitude'])
-    sourceLane = int(request.form['sourceLane'])
-    destinationLane =int(request.form['destinationLane'])
-    # print(lat, lon)
 
     return 'Success'
 
 
 @app.route('/post-coordinates', methods=['POST'])
 def post_coordinates():
-    # Retrieve the latitude and longitude from the request
-    for key, value in request.form.items():
-        print(key, value)
+    global sourceLane
+    global destinationLane
+
+    global arduinoLat
+    global arduinoLon
+
+    global hospitalLat
+    global hospitalLon
+
+    if (request.form['sourceLane']):
+        sourceLane = int(request.form['sourceLane'])
+    if (request.form['destinationLane']):
+        destinationLane = int(request.form['destinationLane'])
+
+    if (request.form['arduinoLatitude']):
+        arduinoLat = float(request.form['arduinoLatitude'])
+    if (request.form['arduinoLongitude']):
+        arduinoLon = float(request.form['arduinoLongitude'])
+
+    if (request.form['hospitalLatitude']):
+        hospitalLat = float(request.form['hospitalLatitude'])
+    if (request.form['hospitalLongitude']):
+        hospitalLon = float(request.form['hospitalLongitude'])
 
     return 'Success'
 

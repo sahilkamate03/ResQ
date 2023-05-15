@@ -2,6 +2,19 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
+// Lane Config
+const int LANE1_R = 22;
+const int LANE1_G = 23;
+
+const int LANE2_R = 21;
+const int LANE2_G = 19;
+
+const int LANE3_R = 18;
+const int LANE3_G = 5;
+
+const int LANE4_R = 2;
+const int LANE4_G = 15;
+
 // for background task
 bool emergency = false;
 unsigned long backgroundLastRunTime = 0;       // the last time backgroundFxn() was run
@@ -27,18 +40,13 @@ int range = 50;
 
 int backgroundFxn()
 {
-    // Serial.print("Fetching " + url + "... ");
-
     HTTPClient http;
     http.begin(url);
 
     int httpResponseCode = http.GET();
     if (httpResponseCode > 0)
     {
-        // Serial.print("HTTP ");
-        // Serial.println(httpResponseCode);
         String payload = http.getString();
-        // Serial.println();
         DynamicJsonDocument doc(1024); // 1024 is the JSON document size
         deserializeJson(doc, payload);
         distance = doc["dist"];
@@ -52,6 +60,54 @@ int backgroundFxn()
 void emergencyFxn()
 {
     Serial.println("Emergency");
+    if (sourceLane == 0)
+    {
+        digitalWrite(LANE1_R, LOW);
+        digitalWrite(LANE2_R, HIGH);
+        digitalWrite(LANE3_R, HIGH);
+        digitalWrite(LANE4_R, HIGH);
+
+        digitalWrite(LANE1_G, HIGH);
+        digitalWrite(LANE2_G, LOW);
+        digitalWrite(LANE3_G, LOW);
+        digitalWrite(LANE4_G, LOW);
+    }
+    else if (sourceLane == 1)
+    {
+        digitalWrite(LANE1_R, HIGH);
+        digitalWrite(LANE2_R, LOW);
+        digitalWrite(LANE3_R, HIGH);
+        digitalWrite(LANE4_R, HIGH);
+
+        digitalWrite(LANE1_G, LOW);
+        digitalWrite(LANE2_G, HIGH);
+        digitalWrite(LANE3_G, LOW);
+        digitalWrite(LANE4_G, LOW);
+    }
+    else if (sourceLane == 2)
+    {
+        digitalWrite(LANE1_R, HIGH);
+        digitalWrite(LANE2_R, HIGH);
+        digitalWrite(LANE3_R, LOW);
+        digitalWrite(LANE4_R, HIGH);
+
+        digitalWrite(LANE1_G, LOW);
+        digitalWrite(LANE2_G, LOW);
+        digitalWrite(LANE3_G, HIGH);
+        digitalWrite(LANE4_G, LOW);
+    }
+    else
+    {
+        digitalWrite(LANE1_R, HIGH);
+        digitalWrite(LANE2_R, HIGH);
+        digitalWrite(LANE3_R, HIGH);
+        digitalWrite(LANE4_R, LOW);
+
+        digitalWrite(LANE1_G, LOW);
+        digitalWrite(LANE2_G, LOW);
+        digitalWrite(LANE3_G, LOW);
+        digitalWrite(LANE4_G, HIGH);
+    }
     backgroundFxn();
 }
 
@@ -60,18 +116,54 @@ void normal(int lane)
     if (lane == 0)
     {
         Serial.println(lane);
+        digitalWrite(LANE1_R, LOW);
+        digitalWrite(LANE2_R, HIGH);
+        digitalWrite(LANE3_R, HIGH);
+        digitalWrite(LANE4_R, HIGH);
+
+        digitalWrite(LANE1_G, HIGH);
+        digitalWrite(LANE2_G, LOW);
+        digitalWrite(LANE3_G, LOW);
+        digitalWrite(LANE4_G, LOW);
     }
     else if (lane == 1)
     {
         Serial.println(lane);
+        digitalWrite(LANE1_R, HIGH);
+        digitalWrite(LANE2_R, LOW);
+        digitalWrite(LANE3_R, HIGH);
+        digitalWrite(LANE4_R, HIGH);
+
+        digitalWrite(LANE1_G, LOW);
+        digitalWrite(LANE2_G, HIGH);
+        digitalWrite(LANE3_G, LOW);
+        digitalWrite(LANE4_G, LOW);
     }
     else if (lane == 2)
     {
         Serial.println(lane);
+        digitalWrite(LANE1_R, HIGH);
+        digitalWrite(LANE2_R, HIGH);
+        digitalWrite(LANE3_R, LOW);
+        digitalWrite(LANE4_R, HIGH);
+
+        digitalWrite(LANE1_G, LOW);
+        digitalWrite(LANE2_G, LOW);
+        digitalWrite(LANE3_G, HIGH);
+        digitalWrite(LANE4_G, LOW);
     }
     else
     {
         Serial.println(lane);
+        digitalWrite(LANE1_R, HIGH);
+        digitalWrite(LANE2_R, HIGH);
+        digitalWrite(LANE3_R, HIGH);
+        digitalWrite(LANE4_R, LOW);
+
+        digitalWrite(LANE1_G, LOW);
+        digitalWrite(LANE2_G, LOW);
+        digitalWrite(LANE3_G, LOW);
+        digitalWrite(LANE4_G, HIGH);
     }
 }
 
@@ -89,8 +181,6 @@ void runner()
         {
             emergency = false;
         }
-        // normalFxn() code here
-        // ...
         unsigned long currentMillisLane = millis(); // get the current time
 
         if (!emergency && currentMillisLane - previousMillis >= interval)
@@ -101,7 +191,6 @@ void runner()
             normal(totalLane - lane);
             lane--;
         }
-        // periodically check if it's time to run backgroundFxn()
         unsigned long currentMillis = millis();
         if (currentMillis - backgroundLastRunTime >= backgroundInterval)
         {
@@ -122,6 +211,18 @@ void setup()
         delay(100);
         Serial.print(".");
     }
+
+    pinMode(LANE1_R, OUTPUT);
+    pinMode(LANE1_G, OUTPUT);
+
+    pinMode(LANE2_R, OUTPUT);
+    pinMode(LANE2_G, OUTPUT);
+
+    pinMode(LANE3_R, OUTPUT);
+    pinMode(LANE3_G, OUTPUT);
+
+    pinMode(LANE4_R, OUTPUT);
+    pinMode(LANE4_G, OUTPUT);
 }
 
 void loop()
