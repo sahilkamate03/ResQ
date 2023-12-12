@@ -141,12 +141,19 @@ This Flutter app is part of the ResQ system, working in conjunction with a smart
   <img src="https://github.com/sahilkamate03/ResQ/blob/main/images/screenshots/testMode.png?raw=true" width="200" />
 </p>
 
-## Other
+## Explore More about the Project
 Download apk from [here](https://github.com/sahilkamate03/ResQ/raw/main/ResQ.apk).
 
     Credentials
     Username: sahilkamate03@gmail.com
     Password: 123456
 
-For the detailed information of project visit
-[Report](https://docs.google.com/document/d/18p56d6-H-P4OafdVXcifjPQ2d7gooMJoQi3T3GeFa5w/edit?pli=1) .
+
+
+- **Server Code:** Check out the [Server Repository](https://replit.com/@SahilKamate/ResQ) for an in-depth look at the server-side code.
+
+- **IoT/ESP32 Details:** Dive into the details of the ESP32 implementation by visiting the [Iot/ESP32 Project on Wokwi](https://wokwi.com/projects/363907460902039553).
+
+- **Project Report:** For a comprehensive understanding of the project, you can read the [Project Report](https://docs.google.com/document/d/18p56d6-H-P4OafdVXcifjPQ2d7gooMJoQi3T3GeFa5w/edit?pli=1).
+
+Feel free to explore each section to gain insights into different aspects of the project.
